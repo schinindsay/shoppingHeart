@@ -1,0 +1,2 @@
+export const FETCH_PLACES = "FETCH_PLACES";
+export const FETCH_RATINGS = "FETCH_RATINGS";
