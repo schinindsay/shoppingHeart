@@ -6,10 +6,14 @@ const mongoose = require('mongoose');
 //keep for future login requirements
 // const requireLogin = require('../middlewares/requireLogin');
 
-// const Place = mongoose.model('places');
-
 module.exports = app => {
 
-//routes go here
+  const questions = require('../controllers/surveyQuestions.controller');
 
-};
+  //add a question to db
+  app.post('/api/questions', questions.create);
+
+  //get questions out of db
+  app.get('/api/questions', questions.findAll);
+
+}

@@ -1,14 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import { fetchPlaces } from "../actions/index";
+import { selectPlaces } from "../actions/index";
+
 
 class PlacesList extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchPlaces());
+    this.props.fetchPlaces();
   }
 
-  render() {
-    console.log(this);
+  renderPlaces() {
     const { places } = this.props;
 
     if (!places) {
@@ -16,12 +18,24 @@ class PlacesList extends React.Component {
     }
 
     return (
-      <ul>
-        {places.map(places =>
-          <li key={places.id}>{places.name}</li>
-        )}
-      </ul>
+      places.map ( place =>
+        <ul 
+        key={place.id}
+        onClick={() => this.props.selectPlaces(place)}
+        className="places-list-item"
+        >
+          <li>{place.name}</li>
+        </ul> 
+      )
     );
+  }
+
+  render(){
+    return (
+      <div className="places-div">
+        {this.renderPlaces()}
+      </div>
+    )
   }
 }
 
@@ -32,4 +46,8 @@ const mapStateToProps = state => ({
   // error: state.places.error
 });
 
-export default connect(mapStateToProps)(PlacesList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({fetchPlaces, selectPlaces }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlacesList);

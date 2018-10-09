@@ -1,2 +1,3 @@
 export const FETCH_PLACES = "FETCH_PLACES";
-export const FETCH_RATINGS = "FETCH_RATINGS";
+export const FETCH_QUESTIONS = "FETCH_QUESTIONS";
+export const PLACE_SELECTED = "PLACE_SELECTED";
