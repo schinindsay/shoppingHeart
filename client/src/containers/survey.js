@@ -1,49 +1,71 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchQuestions } from "../actions/index";
+import { submitRating } from "../actions/index";
 import { bindActionCreators } from "redux";
 
-class Questions extends React.Component {
+class Survey extends React.Component {
+  constructor(props) {
+    super(props);
+    //this.place = props.places.find(place => place.id === props.match.params.id);
+  }
+
   componentDidMount() {
-    console.log('I am in the questions component');
-    this.props.dispatch(fetchQuestions());
+    // this.props.fetchRating()
+  }
+
+  handleClick(question, answer){
+
+    let ratings = {
+      'Q1_Score': 0,
+      'Q2_Score': 0
+    };
+    ratings[question] = answer;
+
+    let payload = {
+      "fourSquareId": this.props.match.params.id,
+        "ratings": ratings
+    }
+
+    this.props.submitRating(payload, null)
+
   }
 
   render() {
-    console.log("this in survey.js is ", this);
-    const { questions } = this.props;
-
-    if (!questions) {
-      return <div>Loading...</div>;
+    console.log(this.props.currentPlace.name, this)
+    if (!this.props.currentPlace) {
+      return <div>Select a place to get started.</div>;
     }
 
     return (
-      <ul>
-        {
-          questions.map(questions =>
-          <ul key={questions.id}>
-            <li>{questions.name}</li>
-            <li>{questions.text}</li>
-            <li>{questions.category}</li>
-            <button type="button" className="btn btn-outline-primary" id>Primary</button>
-          </ul>
-          )
-        }
-      </ul>
+      <div>
+        <h2>{this.props.currentPlace.name}</h2>
+        <div>
+          <p>Question 1: </p>
+          <button type="submit" className="btn btn-secondary" onClick={() => this.handleClick('Q1_Score', 1)}>
+            Yes
+          </button>
+          <button type="submit" className="btn btn-secondary" onClick={() => this.handleClick('Q1_Score', 0)}>No</button>
+        </div>
+        <div>
+          <p>Question 2:</p>
+          <button type="submit" className="btn btn-secondary" onClick={() => this.handleClick('Q2', true)}>Yes</button>
+          <button type="submit" className="btn btn-secondary" onClick={() => this.handleClick('Q2', false)}>No</button>
+        </div>
+      </div>
     );
   }
 }
 
+
 const mapStateToProps = state => ({
-  //questins defined in reducers index.js
-  questions: state.questions,
-  // loading: state.places.loading,
-  // error: state.places.error
+  ratings: state.ratings,
+  currentPlace: state.currentPlace
 });
 
-//***** DO I NEED THIS? */
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({ fetchQuestions }, dispatch);
-// }
+//get a rating from the db if one extists
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ submitRating }, dispatch);
+}
 
-export default connect(mapStateToProps)(Questions);
+export default connect(mapStateToProps, mapDispatchToProps)(Survey);
+

@@ -2,9 +2,13 @@ import { combineReducers } from 'redux';
 import placesReducer from "./placesReducer";
 import surveyReducer from "./surveyReducer";
 import activePlaceReducer from "./activePlaceReducer";
+import ratingsReducer from "./ratingsReducer";
+import currentPlaceReducer from "./currentPlaceReducer";
 
 export default combineReducers({
   places: placesReducer,
   questions: surveyReducer,
-  activePlace: activePlaceReducer
+  activePlace: activePlaceReducer,
+  ratings: ratingsReducer,
+  currentPlace: currentPlaceReducer
 });

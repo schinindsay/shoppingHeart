@@ -7,8 +7,9 @@ const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
 const cors = require('cors')
 
-require('./models/User');
-require('./models/SurveyQuestions');
+// require('./models/User');
+// require('./models/SurveyQuestions');
+// require('./models/Ratings');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
@@ -27,8 +28,13 @@ app.use(bodyParser.json());
 // app.use(passport.initialize());
 // app.use(passport.session());
 
-require('./routes/placesRoutes')(app);
-require('./routes/surveyRoutes')(app);
+
+// require('./routes/surveyRoutes')(app);
+
+const ratingsRouter = require('./routes/ratingsRoutes');
+app.use(ratingsRouter);
+const placesRouter = require('./routes/placesRoutes');
+app.use(placesRouter);
 
 // //create a new instance of GoogleStrategy and tell passport to use it
 // passport.use(

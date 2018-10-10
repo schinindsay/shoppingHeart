@@ -13,7 +13,6 @@ class Landing extends Component {
     return (
       <div className="landing-div" id="landing">
         <SearchBar />
-        <MapBoxMap />
         <PlacesList /> 
       </div>
     );

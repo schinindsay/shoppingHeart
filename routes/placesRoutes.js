@@ -1,15 +1,15 @@
 const _ = require('lodash');
-const Path = require('path-parser');
-const { URL } = require('url');
-const mongoose = require('mongoose');
 
 //keep for future login requirements
 // const requireLogin = require('../middlewares/requireLogin');
+const placesRouter = require('express').Router();
 
-// const Place = mongoose.model('places');
+//places is my controller
+const places = require('../controllers/placesController');
 
-module.exports = app => {
 
-//routes go here
+//add or update places to db and return them
+placesRouter.route('/api/places/place').post(places.addPlace);
 
-};
+
+module.exports = placesRouter;

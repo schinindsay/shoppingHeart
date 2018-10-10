@@ -1,29 +1,10 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Route, Switch, BrowserRouter  } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-
 import Landing from './Landing'
-import PlaceDetail from "../containers/place_detail";
-
-//import './App.css';
-// import PlacesList from '../containers/places_list';
-// import SearchBar from "../containers/search_places";
-// import MapBoxMap from "../containers/map";
-// import Questions from "../containers/survey";
-
-
-
-
-    {/* <SearchBar />
-    <MapBoxMap />
-    <PlacesList />
-
-
-    <PlaceDetail />
-    <Questions />  */}
-
+import Survey from "../containers/survey";
+// import PlaceDetail from "../containers/place_detail";
 
 class App extends Component {
   render() {
@@ -35,7 +16,11 @@ class App extends Component {
         </header>
 
         <BrowserRouter>
-          <Route exact path="/" component={Landing} />
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/ratings/:id" component={Survey} />
+           
+          </Switch>
         </BrowserRouter>
       </div>
     );
@@ -43,3 +28,5 @@ class App extends Component {
 }
 
 export default connect(null, actions)(App);
+
+{/* <Route path="/places/:id" component={PlaceDetail} /> */}
