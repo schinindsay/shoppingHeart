@@ -6,7 +6,7 @@ import * as actions from '../actions';
 import PlacesList from '../containers/places_list';
 import SearchBar from "../containers/search_places";
 import MapBoxMap from "../containers/map";
-
+// import Geolocated from "../containers/geolocated"
 
 class Landing extends Component {
   render() {
@@ -14,6 +14,8 @@ class Landing extends Component {
       <div className="landing-div" id="landing">
         <SearchBar />
         <PlacesList /> 
+        <MapBoxMap />
+
       </div>
     );
   }

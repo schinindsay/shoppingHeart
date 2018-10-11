@@ -68,20 +68,7 @@ class MapBoxMap extends Component {
             width: "50vw"
           }}
         >
-          >
-          <DrawControl
-            ref={drawControl => {
-              this.drawControl = drawControl;
-            }}
-            controls={{
-              point: true,
-              polygon: true,
-              trash: true,
-              line_string: false,
-              combine_features: false,
-              uncombine_features: false
-            }}
-          />
+         
         </Map>
         <div className="dataSection">
           <button className="dataSnatch" onClick={this.getData}>

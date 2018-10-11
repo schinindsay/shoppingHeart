@@ -1,4 +1,4 @@
-const Place = require('../models/ratings');
+const Place = require('../models/PlaceModel');
 
 function addPlace (req, res) {
 

@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { FETCH_PLACES, FETCH_QUESTIONS, PLACE_SELECTED, ADD_RATINGS, SET_CURRENT_PLACE} from './types';
+import { FETCH_PLACES, FETCH_QUESTIONS, PLACE_SELECTED, ADD_RATINGS, SET_CURRENT_PLACE, ADD_OR_UPDATE_PLACE} from './types';
+import Promise from '../utils/middleware'
 
 let API_ROOT = 'http://localhost:5000'
 
@@ -36,15 +37,24 @@ export const selectPlaces = (place) => {
 };
 
 export const submitRating = (values, history) => async dispatch => {
-  const res = await axios.post('localhost:5000/api/ratings/new', values);
+  const res = await axios.post(`http://localhost:5000/api/ratings/new`, values);
 
   //history.push('/ratings');
   dispatch({ type: ADD_RATINGS, payload: res.data });
+};
 
+export const updateAndReturnPlacesList = (values, history) => async dispatch => {
+  const res = await axios.post(`http://localhost:5000/api/places/place`, values);
+
+  //history.push('/ratings');
+  dispatch({ type: ADD_OR_UPDATE_PLACE, payload: res.data });
 };
 
 export const setCurrentPlace = (place) => async dispatch => {
   dispatch({ type: SET_CURRENT_PLACE, payload: place});
 }
 
-// export const getPlacesScores = ()
+export const fetchSinglePlaces = (place) => async dispatch => {
+  console.log("the place is being fetched");
+}
+
