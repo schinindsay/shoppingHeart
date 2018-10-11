@@ -12,8 +12,8 @@ function addPlace (req, res) {
       country: req.body.location.country,
       crossStreet: req.body.crossStreet,
       latlng: {
-        lat: req.body.location.latlng.lat,
-        lng: req.body.location.latlng.lng,
+        latitude: req.body.location.lat,
+        longitude: req.body.location.lng,
       },
       postalCode: req.body.postalCode,
       state: req.body.state,

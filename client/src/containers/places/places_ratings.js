@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { submitRating, setCurrentPlace} from "../../actions/index";
 import { bindActionCreators } from "redux";
 
-class Survey extends React.Component {
+class PlacesRatings extends React.Component {
   constructor(props) {
     super(props);
     //this.currentPlace = props.places.find(place => place.id === props.match.params.id);
@@ -32,7 +32,10 @@ class Survey extends React.Component {
   }
 
   render() {
-    console.log(this.props.currentPlace.name, this)
+    console.log("WHAT IS THIS.PROPS: " , this.props)
+
+    let PlacesRatings = this.props;
+
     if (!this.props.currentPlace) {
       return <div>Select a place to get started.</div>;
     }
@@ -45,7 +48,6 @@ class Survey extends React.Component {
           <button type="submit" className="btn btn-secondary" onClick={() => this.handleClick('Q1_Score', 1)}>
             Yes
           </button>
-          <h4>{this.props.currentPlace.Q1_Score}</h4>
           <button type="submit" className="btn btn-secondary" onClick={() => this.handleClick('Q1_Score', 0)}>No</button>
         </div>
         <div>
@@ -68,5 +70,5 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ submitRating }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Survey);
+export default connect(mapStateToProps, mapDispatchToProps)(PlacesRatings);
 

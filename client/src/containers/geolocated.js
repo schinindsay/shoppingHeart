@@ -17,7 +17,6 @@ const Map = ReactMapboxGl({
         trackUserLocation: true
 });
 
-
 class Geolocated extends Component {
   
   constructor(props) {

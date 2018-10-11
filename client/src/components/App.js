@@ -2,23 +2,20 @@ import React, { Component } from 'react';
 import { Route, Switch, BrowserRouter  } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import Landing from './Landing'
-import Survey from "../containers/survey";
-// import PlaceDetail from "../containers/place_detail";
+import PlaceListDisplay from './PlaceListDisplay'
+import PlacesRatings from "../containers/places/places_ratings";
+import Header from "./header/Header"
 
 class App extends Component {
   render() {
     return (
       <div className="App" id="root">
 
-        <header className="App-header">
-          <h3>HEADER SECTION</h3>
-        </header>
-
+        <Header />
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route path="/ratings/:id" component={Survey} />
+            <Route exact path="/" component={PlaceListDisplay} />
+            <Route path="/ratings/:id" component={PlacesRatings} />
            
           </Switch>
         </BrowserRouter>

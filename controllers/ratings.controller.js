@@ -1,35 +1,12 @@
 const Rating = require('../models/ratings');
 
-// Create and Save a new Rating
-function createRating (req, res) {
+function getRatings (req, res) {
+  let fourSquareId = req.params.id;
 
-  // Validate request
-  if (!req.body) {
-    return res.status(400).send({
-      message: "Question content can not be empty"
-    });
-  }
+  Rating.findById({ "fourSquareId" : fourSquareId });
 
-  // Create a Rating
-  const rating = new Rating({
-    fourSquareId: req.body.fourSquareId,
-    ratings:{
-      Q1_Score: req.body.ratings.Q1_Score,
-      Q2_Score: req.body.ratings.Q2_Score,
-    }
-  });
-
-  // Save Rating in the database
-  rating.save()
-    .then(data => {
-      res.send(data);
-    }).catch(err => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while creating the Rating."
-      });
-    });
 }
-  
+
 function addRating (req, res) {
 
   let Q1_Score = req.body.ratings.Q1_Score;
@@ -60,6 +37,40 @@ function addRating (req, res) {
 }
 
 module.exports = {
-  createRating,
+  getRatings,
   addRating
 }
+
+
+
+
+
+// // Create and Save a new Rating
+// function createRating (req, res) {
+
+//   // Validate request
+//   if (!req.body) {
+//     return res.status(400).send({
+//       message: "Question content can not be empty"
+//     });
+//   }
+
+//   // Create a Rating
+//   const rating = new Rating({
+//     fourSquareId: req.body.fourSquareId,
+//     ratings:{
+//       Q1_Score: req.body.ratings.Q1_Score,
+//       Q2_Score: req.body.ratings.Q2_Score,
+//     }
+//   });
+
+//   // Save Rating in the database
+//   rating.save()
+//     .then(data => {
+//       res.send(data);
+//     }).catch(err => {
+//       res.status(500).send({
+//         message: err.message || "Some error occurred while creating the Rating."
+//       });
+//     });
+// }

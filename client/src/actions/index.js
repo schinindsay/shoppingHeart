@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_PLACES, FETCH_QUESTIONS, PLACE_SELECTED, ADD_RATINGS, SET_CURRENT_PLACE, ADD_OR_UPDATE_PLACE} from './types';
+import { FETCH_PLACES, FETCH_QUESTIONS, PLACE_SELECTED, ADD_RATINGS, SET_CURRENT_PLACE, ADD_OR_UPDATE_PLACE, FETCH_RATINGS} from './types';
 import Promise from '../utils/middleware'
 
 let API_ROOT = 'http://localhost:5000'
@@ -11,12 +11,12 @@ let query = "coffee";
 let fourSquareClientId = '0X4HGM5A3IJYBINHJELZ5SU4WKWKHECAXQCZCM53NRPI3BF3';
 let fourSquareClientSecret = 'VW4GM523Q3TEGQ2OFVKD5LEZ4VXDKQL1UZ0GE5TSKLSNE1UG';
 // // let places = `${root_url}?client_id=${fourSquareClientId}&client_secret=${fourSquareClientSecret}&limit=50&ll=${latitude},${longitude}&query=${query}`
-let places = `${root_url}?client_id=${fourSquareClientId}&client_secret=${fourSquareClientSecret}&limit=50&ll=35.9940,-78.8986&query=${query}`;
+let places = `${root_url}?client_id=${fourSquareClientId}&client_secret=${fourSquareClientSecret}&limit=50&ll=78.8986,35.9940&query=${query}`;
 console.log(places)
-places = "https://api.foursquare.com/v2/venues/search?client_id=0X4HGM5A3IJYBINHJELZ5SU4WKWKHECAXQCZCM53NRPI3BF3&client_secret=VW4GM523Q3TEGQ2OFVKD5LEZ4VXDKQL1UZ0GE5TSKLSNE1UG&v=20180323&limit=10&ll=35.9940,-78.8986&query=coffee";
+places = "https://api.foursquare.com/v2/venues/search?client_id=0X4HGM5A3IJYBINHJELZ5SU4WKWKHECAXQCZCM53NRPI3BF3&client_secret=VW4GM523Q3TEGQ2OFVKD5LEZ4VXDKQL1UZ0GE5TSKLSNE1UG&v=20180323&limit=10&ll=35.9940,78.8986,35.9940&query=coffee";
 
 export const fetchPlaces = (query) => async dispatch => {
-  places = `https://api.foursquare.com/v2/venues/search?client_id=0X4HGM5A3IJYBINHJELZ5SU4WKWKHECAXQCZCM53NRPI3BF3&client_secret=VW4GM523Q3TEGQ2OFVKD5LEZ4VXDKQL1UZ0GE5TSKLSNE1UG&v=20180323&limit=10&ll=35.9940,-78.8986&query=${query}`;
+  places = `https://api.foursquare.com/v2/venues/search?client_id=0X4HGM5A3IJYBINHJELZ5SU4WKWKHECAXQCZCM53NRPI3BF3&client_secret=VW4GM523Q3TEGQ2OFVKD5LEZ4VXDKQL1UZ0GE5TSKLSNE1UG&v=20180323&limit=10&ll=-78.8986,35.9940&query=${query}`;
   console.log(places);
   const res = await axios.get(places);
 
@@ -56,5 +56,12 @@ export const setCurrentPlace = (place) => async dispatch => {
 
 export const fetchSinglePlaces = (place) => async dispatch => {
   console.log("the place is being fetched");
+}
+
+export const fetchRatings = (fourSquareId) => async dispatch => {
+  console.log ("the fetchRatings action was dispatched!")
+
+  const res = await axios.get(`http://localhost:5000/api/ratings/${fourSquareId}`);
+  dispatch({ type: FETCH_RATINGS, payload:res.data})
 }
 

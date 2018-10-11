@@ -24,6 +24,7 @@ class SearchBar extends Component {
     // We need to go and fetch places based on a search param
     this.props.fetchPlaces(this.state.searchQuery);
     this.setState({ searchQuery: "" });
+    console.log ("THE STATE AFTER SEARCH FORM SUBMIT IS: ", this.state)
   }
 
   render() {
