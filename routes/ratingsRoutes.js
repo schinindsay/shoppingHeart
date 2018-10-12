@@ -7,12 +7,13 @@ const ratingsRouter = require('express').Router();
 //ratings is my controller
 const ratings = require('../controllers/ratings.controller');
 
-
-//add a question to db
-ratingsRouter.route('/api/ratings').post(ratings.createRating);
+// //add a question to db
+// ratingsRouter.route('/api/ratings').post(ratings.createRating);
 
 //add a question to db
 ratingsRouter.route('/api/ratings/new').post(ratings.addRating);
+
+ratingsRouter.route('/api/ratings/:fourSquareId').get(ratings.getRatingsBy4SqId);
 
 
 module.exports = ratingsRouter;

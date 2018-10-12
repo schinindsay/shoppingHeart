@@ -1,11 +1,18 @@
 const Rating = require('../models/ratings');
 
-function getRatings (req, res) {
-  let fourSquareId = req.params.id;
+const getRatingsBy4SqId = (req, res) => {
+  Rating
+    .find({
+      fourSquareId : req.params.fourSquareId
+    }, function (err, result) {
+      if (err) {
+        console.log(err);
+      }
+      console.log("RESULT: " + result);
+      res.json(result)
+    })
 
-  Rating.findById({ "fourSquareId" : fourSquareId });
-
-}
+  }
 
 function addRating (req, res) {
 
@@ -37,13 +44,9 @@ function addRating (req, res) {
 }
 
 module.exports = {
-  getRatings,
+  getRatingsBy4SqId,
   addRating
 }
-
-
-
-
 
 // // Create and Save a new Rating
 // function createRating (req, res) {
