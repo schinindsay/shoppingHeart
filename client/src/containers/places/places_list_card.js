@@ -4,43 +4,42 @@ import { Link } from 'react-router-dom';
 import { bindActionCreators } from "redux";
 import { updateAndReturnPlacesList, setCurrentPlace } from "../../actions/index";
 
-class PlacesListCard extends React.Component {
+class PlacesListCard extends Component {
 
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    console.log("this in the place_list_card is: ", this)
+  //componentDidMount() {
+  //   console.log("this in the place_list_card is: ", this)
 
-    let DataFrom4Sqr = this.props.place
-    console.log("data from 4sqr", DataFrom4Sqr)
+  //   let DataFrom4Sqr = this.props.place
+  //   console.log("data from 4sqr", DataFrom4Sqr)
 
-    let values = {
-          fourSquareId: DataFrom4Sqr.id,
-          name: DataFrom4Sqr.name,
-          placeCategories: DataFrom4Sqr.categories,
-          location: DataFrom4Sqr.location
-        }
-        this.props.updateAndReturnPlacesList(values);
-  }
+  //   let values = {
+  //         fourSquareId: DataFrom4Sqr.id,
+  //         name: DataFrom4Sqr.name,
+  //         placeCategories: DataFrom4Sqr.categories,
+  //         location: DataFrom4Sqr.location
+  //       }
+  //       this.props.updateAndReturnPlacesList(values);
+  // }
 
   handlePlaceClick(id) {
     setCurrentPlace(id);
   }
 
   render(){
-    
-    let place = this.props.placesInLocalDB[this.props.place.id];
-    console.log("PLACE: ", place)
+    console.log(this.props.places, "IN PLACE LIST CARD")
+    const { place } = this.props
 
     if(!place){
       return <div>Loading...</div>
     }
+    // debugger;
     return (
       <div>
         <li>{place.name}</li>
-        <li>{place.location.address}</li>
         <button 
           type="button" 
           className="btn btn-outline-primary" onClick={() => this.handlePlaceClick(place)}>
@@ -55,8 +54,8 @@ class PlacesListCard extends React.Component {
   }
 
 function mapStateToProps (state){
-  console.log("the state in places list card is: ", state);
-  return { placesInLocalDB: state.placesInLocalDB } 
+  // return { placesInLocalDB: state.placesInLocalDB } 
+  return { places: state.places } 
 };
 
 function mapDispatchToProps(dispatch) {

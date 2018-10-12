@@ -6,12 +6,14 @@ import PlaceListDisplay from '../PlaceListDisplay'
 import PlacesRatings from "../../containers/places/places_ratings";
 import bootstrap from 'bootstrap'
 
+
 class Header extends Component {
   render() {
     return (
       <div className="App-header-div" id="Header">
 
         <header className="App-header">
+          <img src="./ShoppingHeartIcon.svg" alt="logo"/>
           <h3>ShoppingHeart</h3>
         </header>
 

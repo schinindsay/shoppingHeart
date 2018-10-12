@@ -6,6 +6,7 @@ import PlaceListDisplay from './PlaceListDisplay'
 import PlacesRatings from "../containers/places/places_ratings";
 import Header from "./header/Header"
 
+
 class App extends Component {
   render() {
     return (
