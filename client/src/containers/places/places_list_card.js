@@ -2,44 +2,39 @@ import React, {Component} from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from "redux";
-import { updateAndReturnPlacesList, setCurrentPlace } from "../../actions/index";
+import { updateAndReturnPlacesList, setCurrentPlace, fetchRatings } from "../../actions/index";
 
 class PlacesListCard extends Component {
 
   constructor(props) {
     super(props);
+
   }
 
-  //componentDidMount() {
-  //   console.log("this in the place_list_card is: ", this)
-
-  //   let DataFrom4Sqr = this.props.place
-  //   console.log("data from 4sqr", DataFrom4Sqr)
-
-  //   let values = {
-  //         fourSquareId: DataFrom4Sqr.id,
-  //         name: DataFrom4Sqr.name,
-  //         placeCategories: DataFrom4Sqr.categories,
-  //         location: DataFrom4Sqr.location
-  //       }
-  //       this.props.updateAndReturnPlacesList(values);
-  // }
+  componentDidMount() {
+    let idToFetch = this.props.place.id
+    this.props.fetchRatings(idToFetch);
+    console.log("RAAAATTTTINGS" ,this.props.ratings)
+  }
 
   handlePlaceClick(id) {
     setCurrentPlace(id);
   }
 
   render(){
-    console.log(this.props.places, "IN PLACE LIST CARD")
-    const { place } = this.props
+   
+
+    const { place } = this.props;
 
     if(!place){
       return <div>Loading...</div>
     }
-    // debugger;
+
     return (
+
       <div>
-        <li>{place.name}</li>
+        <h3>{place.name}</h3>
+   
         <button 
           type="button" 
           className="btn btn-outline-primary" onClick={() => this.handlePlaceClick(place)}>
@@ -54,12 +49,16 @@ class PlacesListCard extends Component {
   }
 
 function mapStateToProps (state){
+  console.log("state!!!!!!" , state)
   // return { placesInLocalDB: state.placesInLocalDB } 
-  return { places: state.places } 
+  return { 
+    places: state.places, 
+    ratings: state.ratings
+  } 
 };
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ updateAndReturnPlacesList }, dispatch);
+  return bindActionCreators({ updateAndReturnPlacesList, fetchRatings }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlacesListCard);
