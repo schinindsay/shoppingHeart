@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { submitRating, setCurrentPlace, fetchRatings} from "../../actions/index";
 import { bindActionCreators } from "redux";
 
+import '../images/shopping-heart-font/shopping-heart.svg'
+
 class PlacesRatings extends React.Component {
   constructor(props) {
     super(props);
@@ -144,6 +146,8 @@ class PlacesRatings extends React.Component {
           <h3>no: {currentPlaceRatings.ratings.Q9_Score.no} </h3>
         </div>
 
+        <button><Glyphicon glyph={"green - idea - 2"}/></button>
+
       </div>
     );
   }
@@ -164,4 +168,74 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlacesRatings);
+
+
+
+{/* <div className="" >
+  <div className="container">
+
+    <div className="row">
+
+
+      <div className="col-md-4 align-self-center text-center p-4">
+
+        <div className="row">
+          <div className="col-md-12">
+
+            <div className="row">
+
+              <div className="col-md-6">
+                <i className="d-block  fa fa-5x fa-font-awesome"></i>
+              </div>
+
+              <div className="col-md-6">
+                <i className="d-block  fa fa-5x fa-font-awesome"></i>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <h3 className="my-2">Heading</h3>
+
+        <p className="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+      </div>
+
+      
+      <div className="col-md-4 align-self-center text-center p-4">
+        <div className="row">
+          <div className="col-md-12">
+            <div className="row">
+              <div className="col-md-6">
+                <i className="d-block  fa fa-5x fa-font-awesome"></i>
+              </div>
+              <div className="col-md-6">
+                <i className="d-block  fa fa-5x fa-font-awesome"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 className="my-2">Heading</h3>
+        <p className="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      <div className="col-md-4 align-self-center text-center p-4">
+        <div className="row">
+          <div className="col-md-12">
+            <div className="row">
+              <div className="col-md-6">
+                <i className="d-block  fa fa-5x fa-font-awesome"></i>
+              </div>
+              <div className="col-md-6">
+                <i className="d-block  fa fa-5x fa-font-awesome"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 className="my-2">Heading</h3>
+        <p className="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+  </div>
+</div> */}
 

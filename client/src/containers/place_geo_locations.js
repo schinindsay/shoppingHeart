@@ -41,89 +41,18 @@ class PlacesGeoLocation extends Component {
   }
 
 
-  // "type": "FeatureCollection",
-  // "features": [
-  //   {
-  //     "type": "Feature",
-  //     "properties": {
-  //       "place": "The coffee bar",
-  //       "login": "espresso",
-  //       "lat": "38.91427",
-  //       "lon": "-77.02827"
-  //     },
-  //     "geometry": {
-  //       "type": "Point",
-  //       "coordinates": [
-  //         -77.02827,
-  //         38.91427
-  //       ]
-  //     }
-  //   },
 
-  // _renderMarkers = function () {
+  // createPopUp(currentFeature) {
+  //   const popUps = document.getElementsByClassName('mapboxgl-popup');
+  //   // Check if there is already a popup on the map and if so, remove it
+  //   if (popUps[0]) popUps[0].remove();
 
-  //   let features = this.props.places.map(place =>{
-  //     return {
-  //     "type": "Feature",
-  //     "properties": {
-  //       "place": place.name,
-  //       "lat": place.location.lat,
-  //       "lon": place.location.lng
-  //     },
-  //     "geometry": {
-  //       "type": "Point",
-  //       "coordinates": [
-  //         place.location.lat,
-  //         place.location.lng
-  //       ]
-  //     }
-  //   };
-  // });
-
-  //   let featureCollection = {
-  //     "type": "FeatureCollection",
-
-  //     features
-  //   }
-  //   debugger;
-  //   return featureCollection;
+  //   let popup = new mapboxgl.PopUp({ closeOnClick: false })
+  //     .setLngLat(coordinates)
+  //     .setHTML('<h3>{place.name}</h3>' +
+  //       '<h4>' + currentFeature.properties.address + '</h4>')
+  //     .addTo(this.map);
   // }
-
-
-
-  // componentWillMount(){
-
-  // }
-
-  // handlePlaceClick(id) {
-  //   setCurrentPlace(id);
-  // }
-
-//   offset = {{
-//   'bottom-left': [12, -38], 'bottom': [0, -38], 'bottom-right': [-12, -38]
-// }}
-
-  // markerHover = (key: string, { map }: any) => {
-  //   map.getCanvas().style.cursor = 'pointer';
-  //   this.props.onMouseEnter(key);
-  // };
-
-  // markerEndHover = (key: string, { map }: any) => {
-  //   map.getCanvas().style.cursor = '';
-  //   this.props.onMouseLeave();
-  // };
-
-  createPopUp(currentFeature) {
-    const popUps = document.getElementsByClassName('mapboxgl-popup');
-    // Check if there is already a popup on the map and if so, remove it
-    if (popUps[0]) popUps[0].remove();
-
-    let popup = new mapboxgl.Popup({ closeOnClick: false })
-      .setLngLat(currentFeature.geometry.coordinates)
-      .setHTML('<h3>Sweetgreen</h3>' +
-        '<h4>' + currentFeature.properties.address + '</h4>')
-      .addTo(this.map);
-  }
 
 
   _renderMarkers = function (){

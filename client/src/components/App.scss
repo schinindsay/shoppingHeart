@@ -54,6 +54,11 @@ $spacer: 1.5rem;
 
 // @import 'bootstrap 4.1.3';
 
+// font-family: 'Fjalla One',
+// sans-serif;
+// font-family: 'Noto Sans',
+// sans-serif;
+
 
 html,
 body {
@@ -61,6 +66,9 @@ body {
   background-color: (map-get($theme-colors, 'light'));
 }
 
+h1 {
+  font-family: 'Fjalla One',
+}
 .header {
   background-color: (map-get($theme-colors, 'light'));
   min-height: 20vh;
@@ -68,6 +76,12 @@ body {
 
 .navbar {
   background-color: (map-get($theme-colors, 'light'));
+}
+
+#logo {
+align-self: center;
+padding-top: 20px;
+padding-left: 10%
 }
 
 .search-div {
