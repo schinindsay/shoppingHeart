@@ -8,7 +8,6 @@ class PlacesListCard extends Component {
 
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
@@ -21,9 +20,31 @@ class PlacesListCard extends Component {
     setCurrentPlace(id);
   }
 
-  render(){
-   
+// <div class="container">
+//   <div class="row">
+//     <div class="mx-auto p-4 col-md-6" >
 
+//       <div class="card"> <img class="card-img-top" src=# alt="Card image cap">
+//         <div class="card-body">
+//           <h5 class="card-title">Card title</h5>
+//           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <a href="#" class="btn btn-primary">Go somewhere</a>
+//         </div>
+//       </div>
+//     </div>
+
+//       <div class="mx-auto p-4 col-md-6"><img class="card-img-top" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" alt="Card image cap">
+//         <div class="card-body">
+//           <h5 class="card-title">Card title</h5>
+//           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <a href="#" class="btn btn-primary">Go somewhere</a>
+//         </div>
+//         </div>
+//       </div>
+//     </div>
+//     </div>
+//     </div>
+
+  render(){
+    console.log('PROOOOOPPPPPs', this.props)
     const { place } = this.props;
 
     if(!place){
@@ -31,7 +52,6 @@ class PlacesListCard extends Component {
     }
 
     return (
-
       <div>
         <h3>{place.name}</h3>
    
@@ -44,7 +64,8 @@ class PlacesListCard extends Component {
             </Link>
           </button>
         </div> 
-      )
+    
+    )
     } 
   }
 

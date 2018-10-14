@@ -27,40 +27,39 @@ class SearchBar extends Component {
     console.log ("THE STATE AFTER SEARCH FORM SUBMIT IS: ", this.state)
   }
 
-  // <div class="py-5 text-center bg-dark text-white">
-  // <div class="container">
-  //   <div class="row" >
-  //     <div class="p-5 col-lg-6 col-10 mx-auto border">
-  //       <h1 class="mb-4">See </h1>
-  //       <form>
-  //         <div class="form-group"> <input type="text" class="search-bar" placeholder="Query" id="Query"> 
-  //</div>
-  //          
-  //             <small class="form-text text-muted text-right">
-  //               <a href="#"> Already have an account?</a>
-  //             </small> </div> <button type="submit" class="btn btn-primary">Submit</button>
-  //         </form>
-  //           </div>
-  //         </div>
-  //   </div>
-  //     </div>
+ 
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit} className="input-group">
-        <input
-          placeholder="Search for businesses by name, category, etc."
-          className="form-control"
-          value={this.state.searchQuery}
-          onChange={this.onInputChange}
-        />
-        <span className="input-group-btn">
-          <button type="submit" className="btn btn-secondary">Search</button>
-        </span>
-      </form>
-    );
+      <div className=" search-div text-center py-2 bg-dark">
+          <div className="row bg-dark">
+            <div className="bg-white col-md-8 col-10  mx-auto p-3">
+              
+              <form className="input-group" onSubmit={this.onFormSubmit}>
+
+                <div className="bg-white col-md-8 col-10  mx-auto p-3">
+
+                  <div className="form-group"> 
+                    <input type="search" 
+                      className="form-control search-input"
+                      placeholder="Search by City, Place, etc..." 
+                      value={this.state.searchQuery}
+                      onChange={this.onInputChange}
+                    /> 
+                  </div>
+
+                
+                
+                  <button type="submit" className="btn btn-primary">Submit</button>
+               </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    
+    )
   }
-}
+};
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchPlaces }, dispatch);

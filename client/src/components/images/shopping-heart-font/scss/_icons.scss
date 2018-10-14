@@ -1,0 +1,22 @@
+// Icons
+// -------------------------
+
+
+[data-icons8]:before,
+.icons8-building-outline:before,
+.icons8-building-outline-2:before,
+.icons8-green-idea:before,
+.icons8-green-idea-2:before,
+.icons8-handshake-heart:before,
+.icons8-handshake-heart-2:before,
+{ @include icons8-font; }
+
+[data-icons8]:before { content: attr(data-icons8); }
+
+.icons8-building-outline:before { content: $icons8-var-building-outline; }
+.icons8-building-outline-2:before { content: $icons8-var-building-outline-2; }
+.icons8-green-idea:before { content: $icons8-var-green-idea; }
+.icons8-green-idea-2:before { content: $icons8-var-green-idea-2; }
+.icons8-handshake-heart:before { content: $icons8-var-handshake-heart; }
+.icons8-handshake-heart-2:before { content: $icons8-var-handshake-heart-2; }
+

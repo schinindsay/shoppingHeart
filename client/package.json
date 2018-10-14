@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.1.0",
+    "@commodityvectors/react-mapbox-gl": "^2.0.3",
     "@mapbox/mapbox-gl-draw": "^1.0.9",
     "@svgr/webpack": "2.4.1",
     "babel-core": "7.0.0-bridge.0",

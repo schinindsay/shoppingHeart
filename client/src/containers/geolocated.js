@@ -5,17 +5,17 @@ import DrawControl from "react-mapbox-gl-draw";
 import mapboxgl, { NavigationControl } from "mapbox-gl";
 import { geolocated, geoPropTypes } from 'react-geolocated';
 
-// Don't forget to import the CSS
-import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
+// // Don't forget to import the CSS
+// import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
 
-const Map = ReactMapboxGl({
-  accessToken:
-    "pk.eyJ1Ijoia29saGFyNzMwIiwiYSI6ImNqazJsZThvZjByNzUzdm1xaXB1cHpweHYifQ.k3uIwJlkTswsnL5jfQ9h2A",
-    positionOptions: {
-          enableHighAccuracy: true
-        },
-        trackUserLocation: true
-});
+// const Map = ReactMapboxGl({
+//   accessToken:
+//     "pk.eyJ1Ijoia29saGFyNzMwIiwiYSI6ImNqazJsZThvZjByNzUzdm1xaXB1cHpweHYifQ.k3uIwJlkTswsnL5jfQ9h2A",
+//     positionOptions: {
+//           enableHighAccuracy: true
+//         },
+//         trackUserLocation: true
+// });
 
 class Geolocated extends Component {
   

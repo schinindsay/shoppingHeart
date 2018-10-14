@@ -1,0 +1,21 @@
+// Font paths
+// -------------------------
+
+@font-face {
+  font-family: "shopping-heart";
+  src: url("../fonts/shopping-heart.eot");
+  src: url("../fonts/shopping-heart.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/shopping-heart.woff2") format("woff2"),
+       url("../fonts/shopping-heart.woff") format("woff"),
+       url("../fonts/shopping-heart.ttf") format("truetype"),
+       url("../fonts/shopping-heart.svg#shopping-heart") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "shopping-heart";
+    src: url("../fonts/shopping-heart.svg#shopping-heart") format("svg");
+  }
+}

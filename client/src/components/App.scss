@@ -63,11 +63,23 @@ body {
 
 .header {
   background-color: (map-get($theme-colors, 'light'));
+  min-height: 20vh;
 }
 
 .navbar {
   background-color: (map-get($theme-colors, 'light'));
 }
+
+.search-div {
+   background-size: cover; 
+   background-position: left top; 
+   background-repeat: repeat
+}
+
+.search-input {
+  width: 100%;
+}
+
 
 .cover {
   min-height: 100%;
