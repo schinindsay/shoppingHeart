@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { submitRating, setCurrentPlace, fetchRatings} from "../../actions/index";
 import { bindActionCreators } from "redux";
 
+import QuestionCard from '../ratings/QuestionCard'
+
 import '../images/shopping-heart-font/shopping-heart.svg'
 
 class PlacesRatings extends React.Component {
@@ -40,10 +42,15 @@ class PlacesRatings extends React.Component {
     // console.log("Q1_Score is", Q1_Score)
     // console.log("WHAT IS THIS.PROPS: " , this.props)
 
+    
+
     let place = this.props.places.find(place => place.id === this.props.match.params.id);
     
     if (!place) {
-      return <div>Select a place to get started.</div>;
+      return (<div>Select a place to get started.
+        
+
+      </div>);
     }
     let currentPlaceRatings = this.props.ratings[this.props.match.params.id]
     
@@ -57,6 +64,9 @@ class PlacesRatings extends React.Component {
       <div>
         <h2>{place.name}</h2>
         <div>
+
+          
+
           <p>Question 1: </p>
           <button type="submit" className="btn btn-secondary" onClick={() => this.handleClick(1, 'yes')}>Yes</button>
           <button type="submit" className="btn btn-secondary" onClick={() => this.handleClick(1, 'no')}>No</button>
@@ -145,8 +155,6 @@ class PlacesRatings extends React.Component {
           <h3>yes: {currentPlaceRatings.ratings.Q9_Score.yes} </h3>
           <h3>no: {currentPlaceRatings.ratings.Q9_Score.no} </h3>
         </div>
-
-        <button><Glyphicon glyph={"green - idea - 2"}/></button>
 
       </div>
     );

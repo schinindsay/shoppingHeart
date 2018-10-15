@@ -5,25 +5,28 @@ import * as actions from '../../actions';
 import PlaceListDisplay from '../placesPages/PlaceListDisplay'
 import PlacesRatings from "../../containers/places/places_ratings";
 import bootstrap from 'bootstrap';
-import ShoppingHeartIcon from './ShoppingHeartIcon.svg'
-
+import ShoppingHeartIcon from '../../styles/ShoppingHeartIcon.svg'
 
 class Header extends Component {
   render() {
     return (
-     <div className="py-5">
-        <div className="container fluid">
+     <div className="header-container">
+        <div className="container ">
           <div className="row">
-            <div className="col-md-4">
-              <img className="img-fluid d-block" src={ShoppingHeartIcon} height="20%"/> 
-              <div className="col-md-6">
-                <h1 className="display-4 text-center">Shopping Heart</h1>
-              </div>
-              <div className="col-md-2"></div>
+
+            <div className="col-md-3">
+              <img className="img-fluid d-block" id="logo" src={ShoppingHeartIcon} height="20%"/> 
             </div>
+
+            <div className="col-md-6">
+              <h1 className="display-4 text-center" id="title">Shopping Heart</h1>
+            </div>
+
+            <div className="col-md-3"></div>
+
           </div>
         </div>
-       </div>
+      </div>
     );
   }
 }

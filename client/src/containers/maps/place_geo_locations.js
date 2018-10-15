@@ -24,7 +24,7 @@ const Map = ReactMapboxGl({
 //https://codeburst.io/build-rich-map-experiences-with-mapbox-and-react-fa13d2c814de
 
 
-class PlacesGeoLocation extends Component {
+class PlaceGeoLocate extends Component {
 
   constructor(props) {
     super(props);
@@ -54,10 +54,24 @@ class PlacesGeoLocation extends Component {
   //     .addTo(this.map);
   // }
 
+  createPopup = function(place){
+    console.log(place);
+    return;
+    let coordinates = 
+      [place.location.lng, place.location.lat]
+      //debugger;
+    let popup = new mapboxgl.Popup({ closeOnClick: true })
+      .setLngLat(coordinates)
+      .setHTML(`<h1>Hello World!</h1>`)
+      .addTo(Map);
+
+    return popup
+  }
+
 
   _renderMarkers = function (){
     let features = this.props.places.map(place => 
-    <Feature coordinates={[place.location.lng, place.location.lat]}>
+    <Feature coordinates={[place.location.lng, place.location.lat]}onClick={() => this.createPopup(place)}>
         <PopUp
           location={[place.location.lng, place.location.lat]}
           >
@@ -86,28 +100,8 @@ class PlacesGeoLocation extends Component {
     return center;
   }
 
-  // _renderPopups = function () {
 
-  //   let Popup = this.props.places.map(place =>
-  //     <Popup
-  //       location={[place.location.lng, place.location.lat]}
-  //       anchor="bottom"
-  //       offset={[0, -50]}
-  //     >
-  //       <div>
-  //         <h1>{place.name}</h1>
-  //       </div>
 
-  //     </Popup> 
-
-  //   )
-
-  //   return Popup
-  // }
-
-  
-
-  
 
   render() {
     const { place } = this.props;
@@ -116,12 +110,13 @@ class PlacesGeoLocation extends Component {
     //   return <div>Loading...</div>
     // }
 
-    // this._renderMarkers();
-   
-    return (
+    this._renderMarkers();
+      return (
       <div>
+          
         
-        <Map
+          
+        <Map 
           style="mapbox://styles/mapbox/light-v9"
           containerStyle={{
             height: "50%",
@@ -140,12 +135,14 @@ class PlacesGeoLocation extends Component {
           {
             this._renderMarkers()
           }
-          
+
         </Layer>
-          
+
       </Map>
+      
+      
       </div>
-        
+
     )
   }
 }
@@ -158,9 +155,6 @@ function mapStateToProps(state) {
   }
 };
 
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({  }, dispatch);
-// }
 
-export default connect(mapStateToProps)(PlacesGeoLocation);
+export default connect(mapStateToProps)(PlaceGeoLocate);
 

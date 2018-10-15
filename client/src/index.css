@@ -1,6 +1,9 @@
+/* green: #75C9B1 orange/red #FF6F4C yellow: #F8B528 blue: #6EB5C9 dark gray: #413D3A light gray: #B6B3AC white: #F4F3EF tan: #F1EAE0 */
+
 body {
   margin: 0;
   padding: 0;
+  background-color: #F4F3EF;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;

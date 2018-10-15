@@ -5,25 +5,30 @@ import * as actions from '../../actions';
 //import './App.css';
 import PlacesList from '../../containers/places/places_list';
 import SearchBar from "../../containers/places/search_places";
-//import MapBoxMap from "../../containers/map";
-//import Map4 from "../../containers/map4";
-import PlacesGeoLocation from "../../containers/place_geo_locations"
-// import Geolocated from "../containers/geolocated"
+import PlaceGeoLocate from "../../containers/maps/place_geo_locations";
 
 class PlaceListDisplay extends Component {
   render() {
     return (
       <div className="place-page-div" id="place-page">
-        <SearchBar />
-        
-        <container>
-          <PlacesGeoLocation />
-        </container>
 
-        <container>
+        <div>
+        <SearchBar />
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-3">.col-sm-3</div>
+          <div class="col-sm-6"><PlaceGeoLocate /></div>
+          <div class="col-sm-3">.col-sm-3</div>
+        </div>
+          
+
+        <div>
           <PlacesList /> 
-        </container>
-      </div>
+        </div>
+
+        </div>
+      
     );
   }
 }

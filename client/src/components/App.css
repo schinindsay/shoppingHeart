@@ -2,22 +2,22 @@
 * Based on Bootstrap v4.0.0 (https://getbootstrap.com) 
 */
 
-// Options
+/* // Options
 // 
-// Quickly modify global styling by enabling or disabling optional features.
+// Quickly modify global styling by enabling or disabling optional features. */
 
-$enable-rounded: true !default;
+/* $enable-rounded: true !default;
 $enable-shadows: true;
 $enable-transitions: true;
 $enable-hover-media-query: false;
 $enable-grid-classes: true;
-$enable-print-styles: true;
+$enable-print-styles: true; */
 
-// Variables
+/* // Variables
 //
-// Colors
+// Colors */
 
-$theme-colors: (primary: #6EB5C9,
+/* $theme-colors: (primary: #6EB5C9,
 secondary: rgb(252, 242, 221),
 light: #F1EAE0,
 dark: #75C9B1,
@@ -33,9 +33,9 @@ $body-color: #413D3A;
 $body-color-inverse: invert($body-color) !default;
 $link-color: #75C9B1;
 
-// Fonts
-$font-family-base: -apple-system,
-BlinkMacSystemFont,
+/* // Fonts */
+/* $font-family-base: -apple-system, */
+/* BlinkMacSystemFont,
 "Segoe UI",
 Roboto,
 "Helvetica Neue",
@@ -50,14 +50,14 @@ $font-weight-normal: 200;
 $headings-font-weight: 200;
 $lead-font-size: 1.30rem;
 
-$spacer: 1.5rem;
+$spacer: 1.5rem; */ 
 
-// @import 'bootstrap 4.1.3';
+/* // @import 'bootstrap 4.1.3';
 
 // font-family: 'Fjalla One',
 // sans-serif;
 // font-family: 'Noto Sans',
-// sans-serif;
+// sans-serif; */
 
 
 html,
@@ -186,38 +186,3 @@ padding-left: 10%
     background: linear-gradient($body-bg, transparentize($body-bg, 0.2), transparentize($body-bg, 0.9), transparentize($body-bg, 1));
   }
 }
-
-
-
-// .App {
-//   text-align: center;
-// }
-
-// .App-logo {
-//   animation: App-logo-spin infinite 20s linear;
-//   height: 40vmin;
-// }
-
-// .App-header {
-//   background-color: #282c34;
-//   min-height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: calc(10px + 2vmin);
-//   color: white;
-// }
-
-// .App-link {
-//   color: #61dafb;
-// }
-
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }

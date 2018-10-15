@@ -6,7 +6,7 @@ import PlaceListDisplay from './placesPages/PlaceListDisplay'
 import PlacesRatings from "../containers/places/places_ratings";
 import Header from "./header/Header"
 
-import './App.scss'
+import './App.css'
 
 
 class App extends Component {
